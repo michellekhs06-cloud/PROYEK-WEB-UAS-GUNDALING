@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Minum Gundaling</title>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a href="tampilan_awal.html" class="logo"><img src="1000231741-removebg-preview.png" width=150>Pusat Grosir Depot Air Minum Gundaling</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="tampilan_awal.html">Dashboard</a></li>
+                    <li><a href="master_barang.html" class="active">Barang</a></li>
+                    <li><a href="master_mitra.html">Mitra</a></li>
+                    <li><a href="transaksi_pembelian.html">Transaksi Pembelian</a></li>
+                </ul>  
+            </nav>
+        </div>
+    </header>
+   
+<main>
+
+    <section class="section">
+        <div class="container">
+            <h2>Produk</h2>
+            <p class="section-desc">Hi pelanggan setia! Temukan berbagai produk berkualitas dengan harga terbaik hanya di sini.</p>
+            
+            <div class="cards-grid">
+                <article class="card">
+                    <h3>Galon</h3>
+                    <img src="GALON.jpeg"><br>
+                    <span class="card-code"><a href="desc_galon.html">Selengkapnya</a></span>
+                </article>
+
+                <article class="card">
+                    <h3>Saringan</h3>
+                    <img src="SARINGAN.jpeg"><br>
+                    <span class="card-code"><a href="desc_saringan.html">Selengkapnya</a></span>
+                </article>
+
+                <article class="card">
+                    <h3>Tangki Air</h3>
+                    <div class="gambar-tangki">
+                        <img src="TANGKIAIR.jpeg"><br>
+                    </div>
+                    <span class="card-code"><a href="desc_tangkiair.html">Selengkapnya</a></span>
+                </article>
+            </div>
+        </div>
+    </section>
+         <!-- ========================= -->
+<!-- FORM DATA BARANG -->
+<!-- ========================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <h2>Form Data Barang</h2>
+
+        <p class="section-desc">
+            Tambahkan data stok barang ke dalam sistem.
+        </p>
+
+        <form action="#" method="post" id="formBarang" class="form-card">
+
+            <fieldset>
+
+                <legend>Data Barang</legend>
+
+                <div class="form-group">
+
+                    <label for="namaBarang">Nama Barang</label>
+
+                    <input
+                        type="text"
+                        id="namaBarang"
+                        name="namaBarang"
+                        placeholder="Masukkan nama barang">
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="kategori">
+                            Kategori
+                        </label>
+
+                        <select id="kategori" name="kategori">
+
+                            <option value="">-- Pilih Kategori --</option>
+
+                            <option value="Galon">
+                                Galon
+                            </option>
+
+                            <option value="Tangki Air">
+                                Tangki Air
+                            </option>
+
+                            <option value="Filter">
+                                Filter
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="merk">
+                            Merk
+                        </label>
+
+                        <input
+                            type="text"
+                            id="merk"
+                            name="merk"
+                            placeholder="Masukkan merk">
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="stok">
+                            Jumlah Stok
+                        </label>
+
+                        <input
+                            type="number"
+                            id="stok"
+                            name="stok"
+                            placeholder="Jumlah stok">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="harga">
+                            Harga
+                        </label>
+
+                        <input
+                            type="number"
+                            id="harga"
+                            name="harga"
+                            placeholder="Harga barang">
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="supplier">
+                            Supplier
+                        </label>
+
+                        <input
+                           type="text"
+                            id="supplier"
+                            name="supplier"
+                            placeholder="Nama supplier">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="tanggal">
+                            Tanggal Masuk
+                        </label>
+
+                        <input
+                            type="date"
+                            id="tanggal"
+                            name="tanggal">
+
+                    </div>
+
+                </div>
+
+                <div id="formError"></div>
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                        Simpan
+
+                    </button>
+
+                    <button
+                        type="reset"
+                        class="btn btn-outline">
+
+                        Reset
+
+                    </button>
+
+                </div>
+
+            </fieldset>
+
+        </form>
+
+    </div>
+
+</section>
+<section class="section">
+
+    <div class="container">
+
+        <h2>Data Stok Barang</h2>
+
+        <p class="section-desc">
+            Data stok barang yang telah tersimpan.
+        </p>
+
+        <table class="data-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>No</th>
+                    <th>Nama Barang</th>
+                    <th>Kategori</th>
+                    <th>Merk</th>
+                    <th>Stok</th>
+                    <th>Harga</th>
+                    <th>Supplier</th>
+                    <th>Tanggal</th>
+                    <th>Aksi</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="tableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+</main>
+
+<footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <h2>Hubungi Kami</h2>
+                <p>Jalan HM Yamin SH 347 Medan<br>081260099970 - 0813795220290</br></p>
+        
+            </div>
+            <div class="footer-visi">
+                <h2>Visi & Misi</h2>
+                <p>Visi: Menjadi grosir perlengkapan depot air terpercaya.<br>Misi: Menyediakan produk berkualitas dan terjangkau.</br></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Pusat Grosir Depot Air Minum Gundaling. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<script src="script.js"></script> 
+</body>
+</html>
+
+
