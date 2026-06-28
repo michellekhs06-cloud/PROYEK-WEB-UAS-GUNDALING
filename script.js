@@ -127,7 +127,9 @@ renderBarang();
 
 alert("Data berhasil disimpan.");
 
-form.reset();
+sessionStorage.removeItem("isAdmin");
+
+window.location.href = "master_barang.html";
 
     });
 
@@ -163,8 +165,8 @@ function renderBarang() {
             "<td>" + barang.supplier + "</td>" +
             "<td>" + barang.tanggal + "</td>" +
             "<td>" +
-                "<button onclick='editBarang(" + barang.id + ")'>Edit</button> " +
-                "<button onclick='hapusBarang(" + barang.id + ")'>Delete</button>" +
+                "<button class='btn-edit' onclick='editBarang(" + barang.id + ")'>Edit</button> " +
+                "<button class='btn-delete' onclick='hapusBarang(" + barang.id + ")'>Delete</button>" +
             "</td>" +
         "</tr>";
 
@@ -180,15 +182,10 @@ function editBarang(id) {
     sessionStorage.setItem("editBarang", id);
 
     if (sessionStorage.getItem("isAdmin") == "true") {
-
-        location.reload();
-
+        window.location.href = "form_barang.html";
     } else {
-
-        window.location.href = "login.html";
-
+        window.location.href = "login.html?aksi=edit";
     }
-
 }
 
 // ======================================
@@ -204,7 +201,7 @@ function hapusBarang(id) {
 
     } else {
 
-        window.location.href = "login.html";
+        window.location.href = "login.html?aksi=delete";
 
     }
 
@@ -306,9 +303,49 @@ function isiFormEdit() {
 }
 
 // ======================================
+// Cek Login Admin
+// ======================================
+function cekLoginAdmin() {
+
+    var form = document.getElementById("formBarang");
+
+    if (!form) {
+        return;
+    }
+
+    if (sessionStorage.getItem("isAdmin") != "true") {
+
+        alert("Silakan login terlebih dahulu.");
+
+        window.location.href = "login.html";
+
+    }
+
+}
+
+// ======================================
+// Mengubah Tampilan Saat Edit
+// ======================================
+function ubahTampilanEdit() {
+
+    if (editMode == false) {
+        return;
+    }
+
+    document.getElementById("judulForm").innerHTML = "Edit Data Barang";
+
+    document.getElementById("legendForm").innerHTML = "Edit Data Barang";
+
+    document.getElementById("btnSimpan").innerHTML = "Update";
+
+}
+
+// ======================================
 // Saat Halaman Dibuka
 // ======================================
 document.addEventListener("DOMContentLoaded", function () {
+
+    cekLoginAdmin();
 
     cekModeEdit();
 
@@ -317,6 +354,8 @@ document.addEventListener("DOMContentLoaded", function () {
     renderBarang();
 
     isiFormEdit();
+
+    ubahTampilanEdit();
 
     cekModeDelete();
 

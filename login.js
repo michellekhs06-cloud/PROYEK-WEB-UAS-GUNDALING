@@ -27,19 +27,36 @@ function initLogin() {
 
         }
 
-        if (username == "admin" && password == "12345") {
+if (username == "admin" && password == "12345") {
+    sessionStorage.setItem("isAdmin", "true");
+    alert("Login berhasil.");
+    const urlParams = new URLSearchParams(window.location.search);
+    const aksi = urlParams.get("aksi");
 
-            sessionStorage.setItem("isAdmin", "true");
+    if (aksi == "tambah") {
 
-            alert("Login berhasil.");
+    window.location.href = "form_barang.html";
 
-            window.location.href="master_barang.html";
+    }
+    else if (aksi == "edit") {
 
-        } else {
+        window.location.href = "form_barang.html";
 
-            pesanError.innerHTML = "Username atau Password salah.";
+    }
+    else if (aksi == "delete") {
 
-        }
+        window.location.href = "master_barang.html";
+
+    }
+    else {
+
+        window.location.href = "master_barang.html";
+
+    }
+
+} else {
+    pesanError.innerHTML = "Username atau Password salah.";
+}
 
     });
 
