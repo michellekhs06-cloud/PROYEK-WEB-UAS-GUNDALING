@@ -9,7 +9,10 @@ function Navbar({ halamanAktif, setHalamanAktif }) {
                 <a
                     href="#"
                     className="logo"
-                    onClick={() => setHalamanAktif("dashboard")}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setHalamanAktif("dashboard");
+                    }}
                 >
 
                     <img
@@ -28,46 +31,61 @@ function Navbar({ halamanAktif, setHalamanAktif }) {
 
                         <li>
 
-                <a
-                    href="#"
-                    className={halamanAktif === "dashboard" ? "active" : ""}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        setHalamanAktif("dashboard");
-                    }}
-                >
-                    Dashboard
-                </a>
+                            <a
+                                href="#"
+                                className={halamanAktif === "dashboard" ? "active" : ""}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setHalamanAktif("dashboard");
+                                }}
+                            >
+                                Dashboard
+                            </a>
 
                         </li>
 
                         <li>
 
-                <a
-                    href="#"
-                    className={halamanAktif === "barang" ? "active" : ""}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        setHalamanAktif("barang");
-                    }}
-                >
-                    Barang
-                </a>
+                            <a
+                                href="#"
+                                className={halamanAktif === "barang" ? "active" : ""}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setHalamanAktif("barang");
+                                }}
+                            >
+                                Barang
+                            </a>
 
                         </li>
-                        
-                <li>
 
-                <a
-                    href="#"
-                    className={halamanAktif === "dashboard" ? "active" : ""}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        setHalamanAktif("dashboard");
-                    }}
-                >
-                    Dashboard
-                </a>
+                        <li>
+
+                            <a
+                                href="#"
+                                className={halamanAktif === "mitra" ? "active" : ""}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setHalamanAktif("mitra");
+                                }}
+                            >
+                                Mitra
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a
+                                href="#"
+                                className={halamanAktif === "transaksi" ? "active" : ""}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setHalamanAktif("transaksi");
+                                }}
+                            >
+                                Transaksi Pembelian
+                            </a>
 
                         </li>
 

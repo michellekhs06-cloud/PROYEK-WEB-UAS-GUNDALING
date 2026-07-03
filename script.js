@@ -123,11 +123,10 @@ if (editMode == false) {
 
 saveBarang(daftarBarang);
 
-renderBarang();
-
-alert("Data berhasil disimpan.");
-
+sessionStorage.removeItem("hapusBarang");
 sessionStorage.removeItem("isAdmin");
+
+alert("Data berhasil dihapus.");
 
 window.location.href = "master_barang.html";
 

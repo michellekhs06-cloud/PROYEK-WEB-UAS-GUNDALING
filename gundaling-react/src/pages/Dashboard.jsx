@@ -17,8 +17,8 @@ function Dashboard({ judul }) {
 
         
         <main>
-            <section class="hero">
-            <div class="container">
+            <section className="hero">
+            <div className="container">
                 <h2>Tentang Kami</h2>
                 <p>Pusat Grosir Depot Air Minum Gundaling merupakan usaha yang bergerak di bidang penyediaan berbagai
                 perlengkapan untuk kebutuhan depot air minum isi ulang. Kami hadir untuk membantu para pelaku usaha
