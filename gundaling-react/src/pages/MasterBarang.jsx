@@ -1,198 +1,223 @@
-import { useState } from "react";
+function MasterBarang({
 
-function MasterBarang({ setHalamanAktif }) {
+    dataBarang,
 
-    const [dataBarang] = useState([
-        {
-            id: 1,
-            nama: "Galon",
-            stok: 20,
-            kategori: "Galon"
-        },
-        {
-            id: 2,
-            nama: "Saringan Air",
-            stok: 15,
-            kategori: "Filter"
-        },
-        {
-            id: 3,
-            nama: "Tangki Air",
-            stok: 8,
-            kategori: "Tangki Air"
-        }
-    ]);
+    setHalamanAktif,
 
-    return (
+    setBarangEdit,
 
-        <main>
+    setBarangHapus,
 
-            <section className="section">
+    setModeForm
 
-                <div className="container">
+}) {
 
-                    <h2>Produk</h2>
 
-                    <p className="section-desc">
-                        Hi pelanggan setia! Temukan berbagai produk berkualitas
-                        dengan harga terbaik hanya di sini.
-                    </p>
+        return (
 
-                    <div className="cards-grid">
+            <main>
 
-                        <article className="card">
+                <section className="section">
 
-                            <h3>Galon</h3>
+                    <div className="container">
 
-                            <img
-                                src="/GALON.jpeg"
-                                alt="Galon"
-                            />
+                        <h2>Produk</h2>
 
-                            <br />
+                        <p className="section-desc">
+                            Hi pelanggan setia! Temukan berbagai produk berkualitas
+                            dengan harga terbaik hanya di sini.
+                        </p>
 
-                            <button
-                                className="btn btn-outline"
-                                onClick={() => setHalamanAktif("detailGalon")}
-                            >
-                                Selengkapnya
-                            </button>
+                        <div className="cards-grid">
 
-                        </article>
+                            <article className="card">
 
-                        <article className="card">
+                                <h3>Galon</h3>
 
-                            <h3>Saringan</h3>
+                                <img
+                                    src="/GALON.jpeg"
+                                    alt="Galon"
+                                />
 
-                            <img
-                                src="/SARINGAN.jpeg"
-                                alt="Saringan"
-                            />
+                                <br />
 
-                            <br />
+                                <button
+                                    className="btn btn-outline"
+                                    onClick={() => setHalamanAktif("detailGalon")}
+                                >
+                                    Selengkapnya
+                                </button>
 
-                            <button
-                                className="btn btn-outline"
-                                onClick={() => setHalamanAktif("detailSaringan")}
-                            >
-                                Selengkapnya
-                            </button>
+                            </article>
 
-                        </article>
+                            <article className="card">
 
-                        <article className="card">
+                                <h3>Saringan</h3>
 
-                            <h3>Tangki Air</h3>
+                                <img
+                                    src="/SARINGAN.jpeg"
+                                    alt="Saringan"
+                                />
 
-                            <img
-                                src="/TANGKIAIR.jpeg"
-                                alt="Tangki Air"
-                            />
+                                <br />
 
-                            <br />
+                                <button
+                                    className="btn btn-outline"
+                                    onClick={() => setHalamanAktif("detailSaringan")}
+                                >
+                                    Selengkapnya
+                                </button>
 
-                            <button
-                                className="btn btn-outline"
-                                onClick={() => setHalamanAktif("detailTangki")}
-                            >
-                                Selengkapnya
-                            </button>
+                            </article>
 
-                        </article>
+                            <article className="card">
+
+                                <h3>Tangki Air</h3>
+
+                                <img
+                                    src="/TANGKIAIR.jpeg"
+                                    alt="Tangki Air"
+                                />
+
+                                <br />
+
+                                <button
+                                    className="btn btn-outline"
+                                    onClick={() => setHalamanAktif("detailTangki")}
+                                >
+                                    Selengkapnya
+                                </button>
+
+                            </article>
+
+                        </div>
 
                     </div>
 
-                </div>
+                </section>
 
-            </section>
+                <section className="section">
 
-            <section className="section">
+                    <div className="container">
 
-                <div className="container">
+                        <h2>Data Stok Barang</h2>
 
-                    <h2>Data Stok Barang</h2>
+                        <p className="section-desc">
 
-                    <p className="section-desc">
+                            Data stok barang yang telah tersimpan.
 
-                        Data stok barang yang telah tersimpan.
+                        </p>
 
-                    </p>
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => {
 
-                    <button
-                        className="btn btn-primary"
-                        onClick={() => setHalamanAktif("login")}
-                    >
-                        Tambah Barang
-                    </button>
+                                setModeForm("tambah");
 
-                    <br />
-                    <br />
+                                setBarangEdit(null);
 
-                    <table className="tabel-barang">
+                                setHalamanAktif("login");
 
-                        <thead>
+                            }}
+                        >
+                            Tambah Barang
+                        </button>
 
-                            <tr>
+                        <br />
+                        <br />
 
-                                <th>No</th>
-                                <th>Nama Barang</th>
-                                <th>Kategori</th>
-                                <th>Stok</th>
-                                <th>Aksi</th>
+                        <table className="tabel-barang">
 
-                            </tr>
+                            <thead>
 
-                        </thead>
+                                <tr>
 
-                        <tbody>
-
-                            {dataBarang.map((item, index) => (
-
-                                <tr key={item.id}>
-
-                                    <td>{index + 1}</td>
-
-                                    <td>{item.nama}</td>
-
-                                    <td>{item.kategori}</td>
-
-                                    <td>{item.stok}</td>
-
-                                    <td>
-
-                                        <button
-                                            className="btn btn-primary"
-                                            onClick={() => setHalamanAktif("login")}
-                                        >
-                                            Edit
-                                        </button>
-
-                                        {" "}
-
-                                        <button
-                                            className="btn btn-outline"
-                                        >
-                                            Delete
-                                        </button>
-
-                                    </td>
+                                    <th>No</th>
+                                    <th>Nama Barang</th>
+                                    <th>Kategori</th>
+                                    <th>Merk</th>
+                                    <th>Stok</th>
+                                    <th>Harga</th>
+                                    <th>Supplier</th>
+                                    <th>Tanggal</th>
+                                    <th>Aksi</th>
 
                                 </tr>
 
-                            ))}
+                            </thead>
+                            <tbody>
 
-                        </tbody>
+                                {dataBarang.map((item, index) => (
 
-                    </table>
+                                    <tr key={item.id}>
 
-                </div>
+                                        <td>{index + 1}</td>
 
-            </section>
+                                        <td>{item.namaBarang}</td>
 
-        </main>
+                                        <td>{item.kategori}</td>
 
-    );
+                                        <td>{item.merk}</td>
 
-}
+                                        <td>{item.stok}</td>
 
-export default MasterBarang;
+                                        <td>{item.harga}</td>
+
+                                        <td>{item.supplier}</td>
+
+                                        <td>{item.tanggal}</td>
+                                        <td>
+
+                                            <button
+                                                className="btn btn-primary"
+                                                onClick={() => {
+
+                                                    setBarangEdit(item);
+
+                                                    setModeForm("edit");
+
+                                                    setHalamanAktif("login");
+
+                                                }}
+                                            >
+                                                Edit
+                                            </button>
+
+                                            {" "}
+
+                                            <button
+                                                className="btn btn-outline"
+                                                onClick={() => {
+
+                                                    setBarangHapus(item);
+
+                                                    setModeForm("delete");
+
+                                                    setHalamanAktif("login");
+
+                                                }}
+                                            >
+                                                Delete
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+                                ))}
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        );
+
+    }
+
+    export default MasterBarang;

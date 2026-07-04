@@ -1,4 +1,16 @@
-function DetailSaringan() {
+function DetailSaringan({
+
+    dataBarang,
+
+    setHalamanAktif
+
+}) {
+
+    const saringan = dataBarang.find(
+
+        (item) => item.kategori === "Saringan"
+
+    );
 
     return (
 
@@ -10,7 +22,7 @@ function DetailSaringan() {
 
                     <button
                         className="btn btn-outline"
-                        onClick={() => window.history.back()}
+                        onClick={() => setHalamanAktif("barang")}
                     >
                         ← Kembali
                     </button>
@@ -30,7 +42,13 @@ function DetailSaringan() {
 
                         <div className="produk-desc">
 
-                            <p><strong>Stok :</strong> 61</p>
+                            <p>
+
+                                <strong>Stok :</strong>
+
+                                {saringan ? saringan.stok : 0}
+
+                            </p>
 
                             <p>
                                 Saringan air berkualitas tinggi yang dirancang

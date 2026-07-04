@@ -1,6 +1,22 @@
 import { useState } from "react";
 
-function Login({ onLogin }) {
+function Login({
+
+    modeForm,
+
+    barangHapus,
+
+    dataBarang,
+
+    setDataBarang,
+
+    setHalamanAktif,
+
+    setBarangHapus,
+
+    setModeForm
+
+}) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -18,19 +34,41 @@ function Login({ onLogin }) {
 
         }
 
-        if (username === "admin" && password === "12345") {
+if (username === "admin" && password === "12345") {
 
-            sessionStorage.setItem("isAdmin", "true");
+    sessionStorage.setItem("isAdmin", "true");
 
-            alert("Login berhasil.");
+    alert("Login berhasil.");
+    
+    setUsername("");
+    setPassword("");
+    setPesanError("");
 
-            if (onLogin) {
+    if (modeForm === "delete") {
 
-                onLogin();
+        const dataBaru = dataBarang.filter(
 
-            }
+            (item) => item.id !== barangHapus.id
 
-        } else {
+        );
+
+        setDataBarang(dataBaru);
+
+        setBarangHapus(null);
+
+        setModeForm("tambah");
+
+        setHalamanAktif("barang");
+
+    }
+
+    else {
+
+        setHalamanAktif("formBarang");
+
+    }
+
+} else {
 
             setPesanError("Username atau Password salah.");
 

@@ -1,4 +1,16 @@
-function DetailGalon() {
+function DetailGalon({
+
+    dataBarang,
+
+    setHalamanAktif
+
+}) {
+
+    const galon = dataBarang.find(
+
+    (item) => item.kategori === "Galon"
+
+);
 
     return (
 
@@ -10,7 +22,7 @@ function DetailGalon() {
 
                     <button
                         className="btn btn-outline"
-                        onClick={() => window.history.back()}
+                        onClick={() => setHalamanAktif("barang")}
                     >
                         ← Kembali
                     </button>
@@ -30,7 +42,13 @@ function DetailGalon() {
 
                         <div className="produk-desc">
 
-                            <p><strong>Stok :</strong> 31</p>
+                            <p>
+
+                            <strong>Stok :</strong>
+
+                            {galon ? galon.stok : 0}
+
+                            </p>
 
                             <p>
                                 Kami menyediakan air galon isi ulang dengan kualitas terbaik,

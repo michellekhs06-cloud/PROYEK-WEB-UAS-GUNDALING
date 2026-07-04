@@ -1,6 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+function FormBarang({
 
-function FormBarang() {
+    dataBarang,
+
+    setDataBarang,
+
+    barangEdit,
+
+    setBarangEdit,
+
+    modeForm,
+
+    setModeForm,
+
+    setHalamanAktif
+
+}) {
 
     const [formData, setFormData] = useState({
         namaBarang: "",
@@ -12,6 +27,32 @@ function FormBarang() {
         tanggal: ""
     });
 
+    useEffect(() => {
+
+    if (modeForm === "edit" && barangEdit) {
+
+        setFormData({
+
+            namaBarang: barangEdit.namaBarang,
+
+            kategori: barangEdit.kategori,
+
+            merk: barangEdit.merk,
+
+            stok: barangEdit.stok,
+
+            harga: barangEdit.harga,
+
+            supplier: barangEdit.supplier,
+
+            tanggal: barangEdit.tanggal
+
+        });
+
+    }
+
+}, [barangEdit, modeForm]);
+
     function handleChange(event) {
 
         const { name, value } = event.target;
@@ -22,6 +63,22 @@ function FormBarang() {
         });
 
     }
+
+    function handleReset() {
+
+    setFormData({
+
+        namaBarang: "",
+        kategori: "",
+        merk: "",
+        stok: "",
+        harga: "",
+        supplier: "",
+        tanggal: ""
+
+    });
+
+}
 
     function handleSubmit(event) {
 
@@ -43,9 +100,73 @@ function FormBarang() {
 
         }
 
-        alert("Data berhasil disimpan.");
+ if (modeForm === "edit") {
 
-        console.log(formData);
+    const dataBaru = dataBarang.map((item) =>
+
+        item.id === barangEdit.id
+
+            ? {
+
+                ...item,
+
+                namaBarang: formData.namaBarang,
+
+                kategori: formData.kategori,
+
+                merk: formData.merk,
+
+                stok: formData.stok,
+
+                harga: formData.harga,
+
+                supplier: formData.supplier,
+
+                tanggal: formData.tanggal
+
+            }
+
+            : item
+
+    );
+
+    setDataBarang(dataBaru);
+
+    alert("Data berhasil diupdate.");
+
+} else {
+
+    const barangBaru = {
+
+        id: dataBarang.length + 1,
+
+        namaBarang: formData.namaBarang,
+
+        kategori: formData.kategori,
+
+        merk: formData.merk,
+
+        stok: formData.stok,
+
+        harga: formData.harga,
+
+        supplier: formData.supplier,
+
+        tanggal: formData.tanggal
+
+    };
+
+    setDataBarang([
+
+        ...dataBarang,
+
+        barangBaru
+
+    ]);
+
+    alert("Data berhasil disimpan.");
+
+}
 
         setFormData({
             namaBarang: "",
@@ -57,6 +178,12 @@ function FormBarang() {
             tanggal: ""
         });
 
+        setBarangEdit(null);
+
+        setModeForm("tambah");
+
+        setHalamanAktif("barang");
+
     }
 
     return (
@@ -65,10 +192,20 @@ function FormBarang() {
 
             <div className="container">
 
-                <h2>Tambah Data Barang</h2>
+                <h2>
+
+                    {modeForm === "edit"
+                        ? "Edit Data Barang"
+                        : "Tambah Data Barang"}
+
+                </h2>
 
                 <p className="section-desc">
-                    Tambahkan data stok barang ke dalam sistem.
+
+                    {modeForm === "edit"
+                        ? "Ubah data stok barang yang dipilih."
+                        : "Tambahkan data stok barang ke dalam sistem."}
+
                 </p>
 
                 <form
@@ -78,7 +215,13 @@ function FormBarang() {
 
                     <fieldset>
 
-                        <legend>Data Barang</legend>
+                        <legend>
+
+                            {modeForm === "edit"
+                                ? "Edit Data Barang"
+                                : "Tambah Data Barang"}
+
+                        </legend>
 
                         <div className="form-group">
 
@@ -198,14 +341,29 @@ function FormBarang() {
                                 type="submit"
                                 className="btn btn-primary"
                             >
-                                Simpan
+
+                                {modeForm === "edit"
+                                    ? "Update"
+                                    : "Simpan"}
+
                             </button>
 
                             <button
-                                type="reset"
+                                type="button"
                                 className="btn btn-outline"
+                                onClick={handleReset}
                             >
                                 Reset
+                            </button>
+
+                            <button
+                                type="button"
+                                className="btn btn-outline"
+                                onClick={() => setHalamanAktif("barang")}
+                            >
+
+                            Kembali
+
                             </button>
 
                         </div>

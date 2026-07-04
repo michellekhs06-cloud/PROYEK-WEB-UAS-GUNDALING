@@ -1,4 +1,16 @@
-function DetailTangki() {
+function DetailTangki({
+
+    dataBarang,
+
+    setHalamanAktif
+
+}) {
+
+    const tangki = dataBarang.find(
+
+        (item) => item.kategori === "Tangki Air"
+
+    );
 
     return (
 
@@ -10,7 +22,7 @@ function DetailTangki() {
 
                     <button
                         className="btn btn-outline"
-                        onClick={() => window.history.back()}
+                        onClick={() => setHalamanAktif("barang")}
                     >
                         ← Kembali
                     </button>
@@ -30,7 +42,13 @@ function DetailTangki() {
 
                         <div className="produk-desc">
 
-                            <p><strong>Stok :</strong> 1</p>
+                            <p>
+
+                                <strong>Stok :</strong>
+
+                                {tangki ? tangki.stok : 0}
+
+                            </p>
 
                             <p>
                                 Tangki air berkualitas tinggi yang dirancang
