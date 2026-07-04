@@ -2,14 +2,7 @@ function Footer() {
     return (
 
         <footer
-  className="footer"
-  style={{
-    display: "block",
-    backgroundColor: "#0f4c5c",
-    color: "white",
-    padding: "30px 0",
-    marginTop: "30px",
-  }}
+
 >
 
             <div className="container footer-inner">

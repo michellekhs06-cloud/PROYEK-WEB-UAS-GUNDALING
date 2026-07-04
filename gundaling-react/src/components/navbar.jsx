@@ -2,7 +2,7 @@ function Navbar({ halamanAktif, setHalamanAktif }) {
 
     return (
 
-        <header className="navbar">
+        <header className="navbar shadow-lg">
 
             <div className="container navbar-inner">
 

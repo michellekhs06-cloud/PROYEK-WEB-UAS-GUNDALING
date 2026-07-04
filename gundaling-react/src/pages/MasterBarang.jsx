@@ -19,11 +19,13 @@ function MasterBarang({
 
                 <section className="section">
 
-                    <div className="container">
+                    <div className="container mx-auto px-6">
 
-                        <h2>Produk</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-3">
+                            Produk
+                        </h2>
 
-                        <p className="section-desc">
+                        <p className="section-desc text-gray-600 mb-6">
                             Hi pelanggan setia! Temukan berbagai produk berkualitas
                             dengan harga terbaik hanya di sini.
                         </p>
@@ -34,32 +36,29 @@ function MasterBarang({
 
                                 <h3>Galon</h3>
 
-                                <img
-                                    src="/GALON.jpeg"
-                                    alt="Galon"
-                                />
+                                <img src="/GALON.jpeg" alt="Galon" />
 
-                                <br />
-
-                                <button
-                                    className="btn btn-outline"
-                                    onClick={() => setHalamanAktif("detailGalon")}
-                                >
-                                    Selengkapnya
-                                </button>
+                                <div className="card-button">
+                                    <button
+                                        className="btn btn-outline"
+                                        onClick={() => setHalamanAktif("detailGalon")}
+                                    >
+                                        Selengkapnya
+                                    </button>
+                                </div>
 
                             </article>
 
                             <article className="card">
 
-                                <h3>Saringan</h3>
+                            <h3>Saringan</h3>
 
-                                <img
-                                    src="/SARINGAN.jpeg"
-                                    alt="Saringan"
-                                />
+                            <img
+                                src="/SARINGAN.jpeg"
+                                alt="Saringan"
+                            />
 
-                                <br />
+                            <div className="card-button">
 
                                 <button
                                     className="btn btn-outline"
@@ -68,9 +67,11 @@ function MasterBarang({
                                     Selengkapnya
                                 </button>
 
-                            </article>
+                            </div>
 
-                            <article className="card">
+                        </article>
+
+                            <article className="card rounded-xl shadow-md hover:shadow-xl transition duration-300">
 
                                 <h3>Tangki Air</h3>
 
@@ -79,14 +80,16 @@ function MasterBarang({
                                     alt="Tangki Air"
                                 />
 
-                                <br />
+                                <div className="card-button">
 
-                                <button
-                                    className="btn btn-outline"
-                                    onClick={() => setHalamanAktif("detailTangki")}
-                                >
-                                    Selengkapnya
-                                </button>
+                                    <button
+                                        className="btn btn-outline"
+                                        onClick={() => setHalamanAktif("detailTangki")}
+                                    >
+                                        Selengkapnya
+                                    </button>
+
+                                </div>
 
                             </article>
 
@@ -100,7 +103,9 @@ function MasterBarang({
 
                     <div className="container">
 
-                        <h2>Data Stok Barang</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-3">
+                            Data Stok Barang
+                        </h2>
 
                         <p className="section-desc">
 
@@ -126,7 +131,7 @@ function MasterBarang({
                         <br />
                         <br />
 
-                        <table className="tabel-barang">
+                        <table className="tabel-barang w-full border-collapse shadow-md rounded-lg overflow-hidden">
 
                             <thead>
 
@@ -169,7 +174,7 @@ function MasterBarang({
                                         <td>
 
                                             <button
-                                                className="btn btn-primary"
+                                                className="btn btn-primary px-5 py-2 rounded-lg"
                                                 onClick={() => {
 
                                                     setBarangEdit(item);
@@ -186,7 +191,7 @@ function MasterBarang({
                                             {" "}
 
                                             <button
-                                                className="btn btn-outline"
+                                                className="btn btn-outline px-5 py-2 rounded-lg"
                                                 onClick={() => {
 
                                                     setBarangHapus(item);

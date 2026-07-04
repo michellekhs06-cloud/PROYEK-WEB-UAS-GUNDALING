@@ -136,9 +136,14 @@ function FormBarang({
 
 } else {
 
+const idBaru =
+    dataBarang.length > 0
+        ? Math.max(...dataBarang.map(item => item.id)) + 1
+        : 1;
+
     const barangBaru = {
 
-        id: dataBarang.length + 1,
+    id: idBaru,
 
         namaBarang: formData.namaBarang,
 
@@ -209,7 +214,7 @@ function FormBarang({
                 </p>
 
                 <form
-                    className="form-card"
+                className="form-card bg-white rounded-xl shadow-lg p-6"
                     onSubmit={handleSubmit}
                 >
 

@@ -4,7 +4,7 @@ function Transaksi() {
 
         <main>
 
-            <section className="section">
+            <section className="section min-h-screen">
 
                 <div className="container">
 

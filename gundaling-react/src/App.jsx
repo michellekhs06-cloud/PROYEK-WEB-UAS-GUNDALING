@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 import Navbar from "./components/navbar.jsx";
@@ -16,46 +16,67 @@ import DetailTangki from "./pages/DetailTangki.jsx";
 
 function App() {
 
+    const dataAwal = [
+        {
+            id: 1,
+            namaBarang: "Galon",
+            kategori: "Galon",
+            merk: "Aqua",
+            stok: 20,
+            harga: 50000,
+            supplier: "PT Aqua",
+            tanggal: "2026-07-01"
+        },
+        {
+            id: 2,
+            namaBarang: "Saringan",
+            kategori: "Saringan",
+            merk: "RO Filter",
+            stok: 15,
+            harga: 120000,
+            supplier: "PT Filter",
+            tanggal: "2026-07-02"
+        },
+        {
+            id: 3,
+            namaBarang: "Tangki Air",
+            kategori: "Tangki Air",
+            merk: "Penguin",
+            stok: 8,
+            harga: 800000,
+            supplier: "PT Penguin",
+            tanggal: "2026-07-03"
+        }
+    ];
+
     const [halamanAktif, setHalamanAktif] = useState("dashboard");
 
-    const [dataBarang, setDataBarang] = useState([
-    {
-        id: 1,
-        namaBarang: "Galon",
-        kategori: "Galon",
-        merk: "Aqua",
-        stok: 20,
-        harga: 50000,
-        supplier: "PT Aqua",
-        tanggal: "2026-07-01"
-    },
-    {
-        id: 2,
-        namaBarang: "Saringan",
-        kategori: "Saringan",
-        merk: "RO Filter",
-        stok: 15,
-        harga: 120000,
-        supplier: "PT Filter",
-        tanggal: "2026-07-02"
-    },
-    {
-        id: 3,
-        namaBarang: "Tangki Air",
-        kategori: "Tangki Air",
-        merk: "Penguin",
-        stok: 8,
-        harga: 800000,
-        supplier: "PT Penguin",
-        tanggal: "2026-07-03"
-    }
-]);
+    const [dataBarang, setDataBarang] = useState(() => {
 
-    const [barangEdit, setBarangEdit] = useState(null); 
+        const data = localStorage.getItem("dataBarang");
+
+        if (data) {
+            return JSON.parse(data);
+        }
+
+        return dataAwal;
+
+    });
+
+    const [barangEdit, setBarangEdit] = useState(null);
 
     const [modeForm, setModeForm] = useState("tambah");
 
     const [barangHapus, setBarangHapus] = useState(null);
+
+    useEffect(() => {
+
+        localStorage.setItem(
+            "dataBarang",
+            JSON.stringify(dataBarang)
+        );
+
+    }, [dataBarang]);
 
     return (
 
@@ -95,7 +116,7 @@ function App() {
             )}
 
             {halamanAktif === "formBarang" && (
-                <FormBarang 
+                <FormBarang
                     dataBarang={dataBarang}
                     setDataBarang={setDataBarang}
                     barangEdit={barangEdit}
@@ -103,8 +124,7 @@ function App() {
                     modeForm={modeForm}
                     setModeForm={setModeForm}
                     setHalamanAktif={setHalamanAktif}
-                />  
-
+                />
             )}
 
             {halamanAktif === "mitra" && (
