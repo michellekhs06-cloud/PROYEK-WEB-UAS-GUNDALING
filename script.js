@@ -71,9 +71,16 @@ function initBarang() {
 
 if (editMode == false) {
 
+    var idBaru =
+        daftarBarang.length > 0
+            ? Math.max.apply(null, daftarBarang.map(function(item){
+                return item.id;
+            })) + 1
+            : 1;
+
     var barang = {
 
-        id: daftarBarang.length + 1,
+        id: idBaru,
 
         nama: namaBarang,
 
@@ -113,20 +120,23 @@ if (editMode == false) {
 
     }
 
-    editMode = false;
-    editId = null;
-
-    sessionStorage.removeItem("editBarang");
-    sessionStorage.removeItem("isAdmin");
 
 }
 
 saveBarang(daftarBarang);
 
+if (editMode) {
+    alert("Data berhasil diupdate.");
+} else {
+    alert("Data berhasil disimpan.");
+}
+
+editMode = false;
+editId = null;
+
+sessionStorage.removeItem("editBarang");
 sessionStorage.removeItem("hapusBarang");
 sessionStorage.removeItem("isAdmin");
-
-alert("Data berhasil dihapus.");
 
 window.location.href = "master_barang.html";
 
@@ -160,12 +170,12 @@ function renderBarang() {
             "<td>" + barang.kategori + "</td>" +
             "<td>" + barang.merk + "</td>" +
             "<td>" + barang.stok + "</td>" +
-            "<td>Rp " + barang.harga + "</td>" +
+            "<td>Rp " + Number(barang.harga).toLocaleString("id-ID") + "</td>" +
             "<td>" + barang.supplier + "</td>" +
             "<td>" + barang.tanggal + "</td>" +
             "<td>" +
-                "<button class='btn-edit' onclick='editBarang(" + barang.id + ")'>Edit</button> " +
-                "<button class='btn-delete' onclick='hapusBarang(" + barang.id + ")'>Delete</button>" +
+                "<button class='btn btn-primary' onclick='editBarang(" + barang.id + ")'>Edit</button> " +
+"<button class='btn btn-outline' onclick='hapusBarang(" + barang.id + ")'>Delete</button>" +
             "</td>" +
         "</tr>";
 
@@ -340,6 +350,87 @@ function ubahTampilanEdit() {
 }
 
 // ======================================
+// Menampilkan Stok Galon
+// ======================================
+function tampilStokGalon() {
+
+    var stok = document.getElementById("stokGalon");
+
+    if (!stok) {
+        return;
+    }
+
+    var daftarBarang = getBarang();
+
+    for (var i = 0; i < daftarBarang.length; i++) {
+
+        if (daftarBarang[i].kategori == "Galon") {
+
+            stok.innerHTML = daftarBarang[i].stok;
+
+            break;
+
+        }
+
+    }
+
+}
+
+// ======================================
+// Menampilkan Stok Saringan
+// ======================================
+function tampilStokSaringan() {
+
+    var stok = document.getElementById("stokSaringan");
+
+    if (!stok) {
+        return;
+    }
+
+    var daftarBarang = getBarang();
+
+    for (var i = 0; i < daftarBarang.length; i++) {
+
+        if (daftarBarang[i].kategori == "Saringan") {
+
+            stok.innerHTML = daftarBarang[i].stok;
+
+            break;
+
+        }
+
+    }
+
+}
+
+// ======================================
+// Menampilkan Stok Tangki Air
+// ======================================
+function tampilStokTangki() {
+
+    var stok = document.getElementById("stokTangki");
+
+    if (!stok) {
+        return;
+    }
+
+    var daftarBarang = getBarang();
+
+    for (var i = 0; i < daftarBarang.length; i++) {
+
+        if (daftarBarang[i].kategori == "Tangki Air") {
+
+            stok.innerHTML = daftarBarang[i].stok;
+
+            break;
+
+        }
+
+    }
+
+}
+
+// ======================================
 // Saat Halaman Dibuka
 // ======================================
 document.addEventListener("DOMContentLoaded", function () {
@@ -351,6 +442,12 @@ document.addEventListener("DOMContentLoaded", function () {
     initBarang();
 
     renderBarang();
+
+    tampilStokGalon();
+
+    tampilStokSaringan();
+
+    tampilStokTangki();
 
     isiFormEdit();
 

@@ -14,51 +14,80 @@
 </head>
 
 <body>
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a href="tampilan_awal.html" class="logo"><img src="1000231741-removebg-preview.png" width=150>Pusat Grosir Depot Air Minum Gundaling</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="tampilan_awal.html">Dashboard</a></li>
+                    <li><a href="master_barang.html" class="active">Barang</a></li>
+                    <li><a href="master_mitra.html">Mitra</a></li>
+                    <li><a href="transaksi_pembelian.html">Transaksi Pembelian</a></li>
+                </ul>  
+            </nav>
+        </div>
+    </header>
 <main>
-<div class="login-container">
 
-    <h2>Login Admin</h2>
+<section class="section"></section>
+    <div class="login-container">
 
-    <p>Silakan login untuk mengakses fitur Edit dan Delete.</p>
+        <h2>Login Admin</h2>
 
-    <form id="formLogin">
+        <p>Silakan login untuk mengakses fitur Tambah/Edit/Delete.</p>
 
-        <label>Username</label>
+        <form id="formLogin">
 
-        <input
-            type="text"
-            id="username"
-            placeholder="Masukkan Username">
+            <label>Username</label>
 
-        <label>Password</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Masukkan Username">
 
-        <input
-            type="password"
-            id="password"
-            placeholder="Masukkan Password">
+            <label>Password</label>
 
-        <p id="pesanError"></p>
+            <input
+                type="password"
+                id="password"
+                placeholder="Masukkan Password">
 
-        <button
-            type="submit"
-            class="btn btn-primary">
+            <p id="pesanError"></p>
 
-            Login
+            <button
+                type="submit"
+                class="btn btn-primary">
 
-        </button>
-    </form>
+                Login
 
-    <br>
+            </button>
+        </form>
 
-    <a href="master_barang.html">
+        <br>
 
-        Kembali
-
-    </a>
-
-</div>
-
+    </div>
+</section>
 </main>
+
+<footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <h2>Hubungi Kami</h2>
+                <p>Jalan HM Yamin SH 347 Medan<br>081260099970 - 0813795220290</br></p>
+        
+            </div>
+            <div class="footer-visi">
+                <h2>Visi & Misi</h2>
+                <p>Visi: Menjadi grosir perlengkapan depot air terpercaya.<br>Misi: Menyediakan produk berkualitas dan terjangkau.</br></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Pusat Grosir Depot Air Minum Gundaling. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
 <script src="login.js"></script>
 
