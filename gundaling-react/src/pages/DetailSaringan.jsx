@@ -16,41 +16,52 @@ function DetailSaringan({
 
         <main>
 
-            <section className="section">
+            <section className="pt-10 pb-5 px-6">
 
-                <div className="container">
+                <div className="max-w-[1200px] mx-auto px-6">
 
                     <button
-                        className="btn btn-outline"
+                        className="
+btn
+btn-outline
+px-5
+py-2
+rounded-lg
+transition
+duration-300
+hover:scale-105
+mb-6
+"
                         onClick={() => setHalamanAktif("barang")}
                     >
                         ← Kembali
                     </button>
 
-                    <h2>Saringan</h2>
+                    <h2 className="text-[1.5rem] font-bold text-[#171718] mb-2">
+    Saringan
+</h2>
 
-                    <div className="produk-detail">
+                    <div className="flex items-start gap-10 mt-5">
 
-                        <div className="produk-img">
+                        <div>
 
-                            <img
-                                src="/SARINGAN.jpeg"
-                                alt="Saringan"
-                            />
+    <img
+        src="/SARINGAN.jpeg"
+        alt="Saringan"
+        className="w-[200px] rounded-lg"
+    />
 
-                        </div>
+</div>
 
-                        <div className="produk-desc">
+                        <div className="max-w-[600px] text-left">
 
-                            <p>
+                           <p className="mb-4 leading-[1.6] text-black">
 
-                                <strong>Stok :</strong>
+    <strong>Stok :</strong> {saringan ? saringan.stok : 0}
 
-                                {saringan ? saringan.stok : 0}
+</p>
 
-                            </p>
-
-                            <p>
+                            <p className="mb-4 leading-[1.6] text-black">
                                 Saringan air berkualitas tinggi yang dirancang
                                 untuk menghasilkan air yang lebih jernih dan
                                 bersih. Produk ini mampu menyaring kotoran
@@ -58,7 +69,7 @@ function DetailSaringan({
                                 air menjadi lebih aman digunakan.
                             </p>
 
-                            <p>
+                            <p className="leading-[1.6] text-black">
                                 Cocok digunakan untuk berbagai kebutuhan
                                 seperti depot air isi ulang, galon, maupun
                                 penggunaan sehari-hari di rumah. Dengan sistem

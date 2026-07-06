@@ -193,11 +193,11 @@ const idBaru =
 
     return (
 
-        <section className="section">
+        <section className="pt-10 pb-5 px-6">
 
-            <div className="container">
+            <div className="max-w-[900px] mx-auto px-6">
 
-                <h2>
+                <h2 className="text-[1.5rem] font-bold text-[#171718] mb-2">
 
                     {modeForm === "edit"
                         ? "Edit Data Barang"
@@ -205,7 +205,7 @@ const idBaru =
 
                 </h2>
 
-                <p className="section-desc">
+                <p className="text-black leading-[1.6] mb-6">
 
                     {modeForm === "edit"
                         ? "Ubah data stok barang yang dipilih."
@@ -214,13 +214,13 @@ const idBaru =
                 </p>
 
                 <form
-                className="form-card bg-white rounded-xl shadow-lg p-6"
+                className="bg-white rounded-xl shadow-lg p-6"
                     onSubmit={handleSubmit}
                 >
 
-                    <fieldset>
+                    <fieldset className="border border-gray-300 rounded-xl p-6">
 
-                        <legend>
+                        <legend className="text-lg font-bold px-2 text-[#171718]">
 
                             {modeForm === "edit"
                                 ? "Edit Data Barang"
@@ -228,11 +228,11 @@ const idBaru =
 
                         </legend>
 
-                        <div className="form-group">
+                        <div className="form-group flex flex-col mb-5">
 
-                            <label>Nama Barang</label>
+                            <label className="font-semibold text-[#171718] mb-2">Nama Barang</label>
 
-                            <input
+                            <input className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#002366]"
                                 type="text"
                                 name="namaBarang"
                                 value={formData.namaBarang}
@@ -241,13 +241,13 @@ const idBaru =
 
                         </div>
 
-                        <div className="form-row">
+                        <div className="form-row grid grid-cols-1 md:grid-cols-2 gap-5">
 
-                            <div className="form-group">
+                            <div className="form-group flex flex-col mb-5">
 
-                                <label>Kategori</label>
+                                <label className="font-semibold text-[#171718] mb-2">Kategori</label>
 
-                                <select
+                                <select className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#002366]"
                                     name="kategori"
                                     value={formData.kategori}
                                     onChange={handleChange}
@@ -265,11 +265,11 @@ const idBaru =
 
                             </div>
 
-                            <div className="form-group">
+                            <div className="form-group flex flex-col mb-5">
 
-                                <label>Merk</label>
+                                <label className="font-semibold text-[#171718] mb-2">Merk</label>
 
-                                <input
+                                <input className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#002366]"
                                     type="text"
                                     name="merk"
                                     value={formData.merk}
@@ -280,13 +280,13 @@ const idBaru =
 
                         </div>
 
-                        <div className="form-row">
+                        <div className="form-row grid grid-cols-1 md:grid-cols-2 gap-5">
 
-                            <div className="form-group">
+                            <div className="form-group flex flex-col mb-5">
 
-                                <label>Jumlah Stok</label>
+                                <label className="font-semibold text-[#171718] mb-2">Jumlah Stok</label>
 
-                                <input
+                                <input className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#002366]"
                                     type="number"
                                     name="stok"
                                     value={formData.stok}
@@ -295,11 +295,11 @@ const idBaru =
 
                             </div>
 
-                            <div className="form-group">
+                            <div className="form-group flex flex-col mb-5">
 
-                                <label>Harga</label>
+                                <label className="font-semibold text-[#171718] mb-2">Harga</label>
 
-                                <input
+                                <input className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#002366]"
                                     type="number"
                                     name="harga"
                                     value={formData.harga}
@@ -310,13 +310,13 @@ const idBaru =
 
                         </div>
 
-                        <div className="form-row">
+                        <div className="form-row grid grid-cols-1 md:grid-cols-2 gap-5">
 
-                            <div className="form-group">
+                            <div className="form-group flex flex-col mb-5">
 
-                                <label>Supplier</label>
+                                <label className="font-semibold text-[#171718] mb-2">Supplier</label>
 
-                                <input
+                                <input className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#002366]"
                                     type="text"
                                     name="supplier"
                                     value={formData.supplier}
@@ -325,11 +325,11 @@ const idBaru =
 
                             </div>
 
-                            <div className="form-group">
+                            <div className="form-group flex flex-col mb-5">
 
-                                <label>Tanggal Masuk</label>
+                                <label className="font-semibold text-[#171718] mb-2">Tanggal Masuk</label>
 
-                                <input
+                                <input className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#002366]"
                                     type="date"
                                     name="tanggal"
                                     value={formData.tanggal}
@@ -340,11 +340,11 @@ const idBaru =
 
                         </div>
 
-                        <div className="form-actions">
+                        <div className="flex gap-3 mt-5 flex-wrap">
 
                             <button
                                 type="submit"
-                                className="btn btn-primary"
+                                className="btn btn-primary px-5 py-2 rounded-lg transition duration-300"
                             >
 
                                 {modeForm === "edit"
@@ -355,7 +355,7 @@ const idBaru =
 
                             <button
                                 type="button"
-                                className="btn btn-outline"
+                                className="btn btn-outline px-5 py-2 rounded-lg transition duration-300"
                                 onClick={handleReset}
                             >
                                 Reset
@@ -363,7 +363,7 @@ const idBaru =
 
                             <button
                                 type="button"
-                                className="btn btn-outline"
+                                className="btn btn-outline px-5 py-2 rounded-lg transition duration-300"
                                 onClick={() => setHalamanAktif("barang")}
                             >
 

@@ -17,30 +17,36 @@ function MasterBarang({
 
             <main>
 
-                <section className="section">
+                <section className="pt-10 pb-5 px-6">
 
-                    <div className="container mx-auto px-6">
+                    <div className="max-w-[1200px] mx-auto px-6">
 
-                        <h2 className="text-3xl font-bold text-gray-900 mb-3">
+                        <h2 className="text-[1.5rem] font-bold text-[#171718] mb-2">
                             Produk
                         </h2>
 
-                        <p className="section-desc text-gray-600 mb-6">
+                        <p className="text-black leading-[1.6] mb-4">
                             Hi pelanggan setia! Temukan berbagai produk berkualitas
                             dengan harga terbaik hanya di sini.
                         </p>
 
-                        <div className="cards-grid">
+                        <div className="grid grid-cols-3 gap-4 mt-4">
 
-                            <article className="card">
+                            <article className="bg-[#d2dbdb] border border-[#334155] rounded-lg p-4 mb-3 transition-all duration-300">
 
-                                <h3>Galon</h3>
+                                <h3 className="text-[1.1rem] font-bold text-[#171718] mb-1">
+    Galon
+</h3>
 
-                                <img src="/GALON.jpeg" alt="Galon" />
+                                <img
+    src="/GALON.jpeg"
+    alt="Galon"
+    className="w-[180px] h-[290px] object-cover rounded-md my-[5px]"
+/>
 
-                                <div className="card-button">
+                                <div className="mt-auto text-left">
                                     <button
-                                        className="btn btn-outline"
+                                        className="btn btn-outline px-5 py-2 rounded-lg transition duration-300 hover:scale-105"
                                         onClick={() => setHalamanAktif("detailGalon")}
                                     >
                                         Selengkapnya
@@ -49,19 +55,23 @@ function MasterBarang({
 
                             </article>
 
-                            <article className="card">
+                            <article className="bg-[#d2dbdb] border border-[#334155] rounded-lg p-4 mb-3 transition duration-300">
 
-                            <h3>Saringan</h3>
+                            <h3 className="text-[1.1rem] font-bold text-[#171718] mb-1">
+    Saringan
+</h3>
 
                             <img
-                                src="/SARINGAN.jpeg"
-                                alt="Saringan"
-                            />
+    src="/SARINGAN.jpeg"
+    alt="Saringan"
+    className="w-[180px] h-[290px] object-cover rounded-md my-[5px]"
+/>
 
-                            <div className="card-button">
+
+                            <div className="card-button mt-auto text-left">
 
                                 <button
-                                    className="btn btn-outline"
+                                    className="btn btn-outline px-5 py-2 rounded-lg transition duration-300 hover:scale-105"
                                     onClick={() => setHalamanAktif("detailSaringan")}
                                 >
                                     Selengkapnya
@@ -71,19 +81,24 @@ function MasterBarang({
 
                         </article>
 
-                            <article className="card rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                            <article className="bg-[#d2dbdb] border border-[#334155] rounded-lg p-4 mb-3 transition-all duration-300">
 
-                                <h3>Tangki Air</h3>
+                                <h3 className="text-[1.1rem] font-bold text-[#171718] mb-1">
+    Tangki Air
+</h3>
 
-                                <img
-                                    src="/TANGKIAIR.jpeg"
-                                    alt="Tangki Air"
-                                />
 
-                                <div className="card-button">
+    <img
+        src="/TANGKIAIR.jpeg"
+        alt="Tangki Air"
+        className="w-[180px] h-[290px] object-cover rounded-md my-[5px]"
+    />
+
+
+                                <div className="card-button mt-auto text-left">
 
                                     <button
-                                        className="btn btn-outline"
+                                        className="btn btn-outline px-5 py-2 rounded-lg transition duration-300 hover:scale-105"
                                         onClick={() => setHalamanAktif("detailTangki")}
                                     >
                                         Selengkapnya
@@ -99,53 +114,68 @@ function MasterBarang({
 
                 </section>
 
-                <section className="section">
+                <section className="py-5 px-6">
 
-                    <div className="container">
+                    <div className="max-w-[1200px] mx-auto px-6">
 
-                        <h2 className="text-3xl font-bold text-gray-900 mb-3">
+                        <h2 className="text-[1.5rem] font-bold text-[#171718] mb-2">
                             Data Stok Barang
                         </h2>
 
-                        <p className="section-desc">
+                        <p className="text-black leading-[1.6] mb-4">
 
                             Data stok barang yang telah tersimpan.
 
                         </p>
 
-                        <button
-                            className="btn btn-primary"
-                            onClick={() => {
+                        <div className="flex justify-start my-5">
 
-                                setModeForm("tambah");
+                            <button
+                                className="btn btn-primary px-5 py-2 rounded-lg transition duration-300"
+                                onClick={() => {
+                                    setModeForm("tambah");
+                                    setBarangEdit(null);
+                                    setHalamanAktif("login");
+                                }}
+                            >
+                                Tambah Barang
+                            </button>
 
-                                setBarangEdit(null);
+</div>
 
-                                setHalamanAktif("login");
-
-                            }}
-                        >
-                            Tambah Barang
-                        </button>
-
-                        <br />
-                        <br />
-
-                        <table className="tabel-barang w-full border-collapse shadow-md rounded-lg overflow-hidden">
+                        <table className="w-full border-collapse">
 
                             <thead>
 
                                 <tr>
 
-                                    <th>No</th>
-                                    <th>Nama Barang</th>
-                                    <th>Kategori</th>
-                                    <th>Merk</th>
-                                    <th>Stok</th>
-                                    <th>Harga</th>
-                                    <th>Supplier</th>
-                                    <th>Tanggal</th>
-                                    <th>Aksi</th>
+                                    <th className="px-[10px] py-[10px] text-center">
+    No
+</th>
+                                    <th className="px-[10px] py-[10px] text-center">
+    Nama Barang
+</th>
+                                    <th className="px-[10px] py-[10px] text-center">
+    Kategori
+</th>
+                                    <th className="px-[10px] py-[10px] text-center">
+    Merk
+</th>
+                                    <th className="px-[10px] py-[10px] text-center">
+    Stok
+</th>
+                                    <th className="px-[10px] py-[10px] text-center">
+    Harga
+</th>
+                                    <th className="px-[10px] py-[10px] text-center">
+    Supplier
+</th>
+                                    <th className="px-[10px] py-[10px] text-center">
+    Tanggal
+</th>
+                                    <th className="px-[10px] py-[10px] text-center">
+    Aksi
+</th>
 
                                 </tr>
 
@@ -156,56 +186,65 @@ function MasterBarang({
 
                                     <tr key={item.id}>
 
-                                        <td>{index + 1}</td>
+                                        <td className="px-[10px] py-[10px] text-center">
+    {index + 1}
+</td>
 
-                                        <td>{item.namaBarang}</td>
+                                        <td className="px-[10px] py-[10px] text-left">
+    {item.namaBarang}
+</td>
+                                        <td className="px-[10px] py-[10px] text-left">
+    {item.kategori}
+</td>
 
-                                        <td>{item.kategori}</td>
+                                        <td className="px-[10px] py-[10px] text-left">
+    {item.merk}
+</td>
 
-                                        <td>{item.merk}</td>
+                                        <td className="px-[10px] py-[10px] text-center">
+    {item.stok}
+</td>
 
-                                        <td>{item.stok}</td>
+                                        <td className="px-[10px] py-[10px] text-right">Rp {Number(item.harga).toLocaleString("id-ID")}</td>
 
-                                        <td>{item.harga}</td>
+                                        <td className="px-[10px] py-[10px] text-left">{item.supplier}</td>
 
-                                        <td>{item.supplier}</td>
+                                        <td className="px-[10px] py-[10px] text-center">{item.tanggal}</td>
+                                        <td className="px-[10px] py-[10px]">
+    <div className="flex justify-center gap-2">
 
-                                        <td>{item.tanggal}</td>
-                                        <td>
+        <button
+            className="btn btn-primary px-5 py-2 rounded-lg transition duration-300"
+            onClick={() => {
 
-                                            <button
-                                                className="btn btn-primary px-5 py-2 rounded-lg"
-                                                onClick={() => {
+                setBarangEdit(item);
 
-                                                    setBarangEdit(item);
+                setModeForm("edit");
 
-                                                    setModeForm("edit");
+                setHalamanAktif("login");
 
-                                                    setHalamanAktif("login");
+            }}
+        >
+            Edit
+        </button>
 
-                                                }}
-                                            >
-                                                Edit
-                                            </button>
+        <button
+            className="btn btn-outline px-5 py-2 rounded-lg transition duration-300"
+            onClick={() => {
 
-                                            {" "}
+                setBarangHapus(item);
 
-                                            <button
-                                                className="btn btn-outline px-5 py-2 rounded-lg"
-                                                onClick={() => {
+                setModeForm("delete");
 
-                                                    setBarangHapus(item);
+                setHalamanAktif("login");
 
-                                                    setModeForm("delete");
+            }}
+        >
+            Delete
+        </button>
 
-                                                    setHalamanAktif("login");
-
-                                                }}
-                                            >
-                                                Delete
-                                            </button>
-
-                                        </td>
+    </div>
+</td>
 
                                     </tr>
 
