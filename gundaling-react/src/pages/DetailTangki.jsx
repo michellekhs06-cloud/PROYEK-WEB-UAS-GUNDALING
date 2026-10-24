@@ -1,8 +1,14 @@
+import { formatRupiah } from "../utils/helpers.js";
+
 function DetailTangki({
 
     dataBarang,
 
-    setHalamanAktif
+    setHalamanAktif,
+
+    dataReview,
+
+    onPesanSekarang
 
 }) {
 
@@ -12,11 +18,17 @@ function DetailTangki({
 
     );
 
+    const reviewTangki = (dataReview || []).filter(
+
+        (r) => tangki && r.productId === tangki.id
+
+    );
+
     return (
 
         <main>
 
-            <section className="pt-10 pb-5 px-6">
+            <section className="pt-32 pb-5 px-6">
 
                 <div className="max-w-[1200px] mx-auto px-6">
 
@@ -55,6 +67,12 @@ mb-6
 
                         <div className="max-w-[600px] text-left">
 
+                            <p className="mb-1 leading-[1.6] text-black">
+
+    <strong>Harga :</strong> {tangki ? formatRupiah(tangki.harga) : "-"}
+
+</p>
+
                             <p className="mb-4 leading-[1.6] text-black">
 
     <strong>Stok :</strong> {tangki ? tangki.stok : 0}
@@ -77,7 +95,49 @@ mb-6
                                 ketersediaan air tetap stabil setiap saat.
                             </p>
 
+                            <button
+                                className="btn btn-primary px-6 py-3 rounded-lg transition duration-300"
+                                onClick={() => onPesanSekarang(tangki)}
+                                disabled={!tangki || tangki.stok <= 0}
+                            >
+                                {tangki && tangki.stok <= 0 ? "Stok Habis" : "Pesan Sekarang"}
+                            </button>
+
                         </div>
+
+                    </div>
+
+                    <div className="mt-8">
+
+                        <h3 className="text-[1.2rem] font-bold text-[#171718] mb-3">
+                            Review Produk
+                        </h3>
+
+                        {reviewTangki.length === 0 ? (
+
+                            <p className="text-black">Belum ada review untuk produk ini.</p>
+
+                        ) : (
+
+                            <div className="flex flex-col gap-3">
+
+                                {reviewTangki.map((r) => (
+
+                                    <div key={r.id} className="bg-[#d2dbdb] border border-[#334155] rounded-lg p-3">
+
+                                        <p className="font-semibold text-[#171718]">
+                                            {r.customerName} — {"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}
+                                        </p>
+
+                                        <p className="text-black">{r.komentar}</p>
+
+                                    </div>
+
+                                ))}
+
+                            </div>
+
+                        )}
 
                     </div>
 

@@ -12,6 +12,7 @@ function MasterBarang({
 
 }) {
 
+        const isAdmin = sessionStorage.getItem("isAdmin") === "true";
 
         return (
 
@@ -114,6 +115,8 @@ function MasterBarang({
 
                 </section>
 
+                {isAdmin && (
+
                 <section className="py-5 px-6">
 
                     <div className="max-w-[1200px] mx-auto px-6">
@@ -135,7 +138,7 @@ function MasterBarang({
                                 onClick={() => {
                                     setModeForm("tambah");
                                     setBarangEdit(null);
-                                    setHalamanAktif("login");
+                                    setHalamanAktif("formBarang");
                                 }}
                             >
                                 Tambah Barang
@@ -217,11 +220,13 @@ function MasterBarang({
             className="btn btn-primary px-5 py-2 rounded-lg transition duration-300"
             onClick={() => {
 
-                setBarangEdit(item);
+                
+setBarangEdit(item);
 
-                setModeForm("edit");
+setModeForm("edit");
 
-                setHalamanAktif("login");
+setHalamanAktif("formBarang");
+
 
             }}
         >
@@ -257,6 +262,8 @@ function MasterBarang({
                     </div>
 
                 </section>
+
+                )}
 
             </main>
 

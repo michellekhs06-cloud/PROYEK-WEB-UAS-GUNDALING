@@ -64,7 +64,7 @@ if (username === "admin" && password === "12345") {
 
     else {
 
-        setHalamanAktif("formBarang");
+        setHalamanAktif("barang");
 
     }
 

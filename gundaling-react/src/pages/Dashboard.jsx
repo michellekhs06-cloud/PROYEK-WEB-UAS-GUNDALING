@@ -12,7 +12,7 @@ function Dashboard({ judul }) {
 
         
         <main>
-            <section className="py-16">
+            <section className="pt-24 pb-16">
             <div className="max-w-[1200px] mx-auto px-6">
                 <h2 className="text-[2rem] font-bold text-[#171718] text-center mb-3">
     Tentang Kami
